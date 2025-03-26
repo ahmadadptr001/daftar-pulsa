@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body,
+button,
+a
+ {
+   font-family: "open sans", system-ui;
+   text-decoration: none;
+}
+
+li {
+  list-style: none;
+}

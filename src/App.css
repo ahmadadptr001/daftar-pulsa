@@ -1,0 +1,16 @@
+:root {
+  --secondary-color: #101828dc;
+}
+
+.mention-container {
+  width: 100%;
+}
+
+.p-inputtext {
+  width: 100% !important; 
+  height: 2.7rem !important;
+}
+
+.p-button-icon, .p-button-label {
+  flex: none !important;
+}
