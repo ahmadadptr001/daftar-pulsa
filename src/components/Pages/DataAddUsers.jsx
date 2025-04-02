@@ -33,10 +33,13 @@ export default function DataAddUsers() {
       }
       else {
          CreateData("users", username, company, image);
-         toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 3000 });
          setUsername("");
          setCompany("");
          setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s")
+         toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 3000 });
+         setTimeout(() => {
+            window.location.reload()
+         }, 2000);
       }
        
    }

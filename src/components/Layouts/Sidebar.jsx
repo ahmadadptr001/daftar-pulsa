@@ -36,8 +36,12 @@ export default function Sidebar() {
          icon: "!text-blue-400 pi pi-wallet",
          items: [
             {
-               label: "riwayat",
+               label: "Riwayat",
                icon: "pi pi-mobile",
+            },
+            {
+               label: "Pembelian",
+               icon : "pi pi-dollar"
             },
             {
                label: "Utang",
@@ -73,22 +77,23 @@ export default function Sidebar() {
    const handlePanelToggle = () => {
       setExpand(!expand);
    };
+   
    return (
       <>
       
          <aside
             className={`${
                expand ? "w-[33px]" : "w-[200px]"
-            } py-5 flex flex-col border-gray-100 bg-gray-900 p-2 h-100% min-h-[100vh] transition-[width] duration-200`}
+            } py-5 px-3 flex flex-col border-gray-100 bg-gray-900 h-100% min-h-[100vh] transition-[width] duration-200`}
          >
             <div onClick={handlePanelToggle} className="flex gap-2 items-center">
-               <i className="!font-extrabold text-gray-500 pi pi-expand my-5 cursor-pointer hover:scale-105"></i> {" "}
+               <i className={`!font-extrabold text-gray-500 pi pi-arrow-${expand ? "right" : "left"} transition-all duration-200 my-5 cursor-pointer hover:scale-105 ${ expand ? "bg-gray-800" : "bg-gray-900"} rounded-full p-2`}></i> {" "}
                <div
                   className={`!font-extrabold text-gray-500 transition-transform duration-200 ${
                      expand ? "scale-0" : "scale-100"
                   }`}
                >
-                  CLOSED
+                  Transaction
                </div>
             </div>
             <PanelMenu

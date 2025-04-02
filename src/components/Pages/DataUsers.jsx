@@ -42,6 +42,9 @@ export default function DataUsers() {
     const accept = () => {
         DeleteData("users", userConfirm)
        toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor Berhasil dihapus', life: 3000 });
+       setTimeout(() => {
+         window.location.reload()
+      }, 2000);
     }
 
     const reject = () => {
@@ -105,9 +108,8 @@ export default function DataUsers() {
 
       const [userConfirm, setUserConfirm] = useState("");
       const handleConfirm = (username) => {
-         setVisible(true);
          setUserConfirm(username);
-         windwo.location.reload();
+         setVisible(true);
       }
 
    return (
