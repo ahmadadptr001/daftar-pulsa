@@ -84,9 +84,9 @@ export default function Sidebar() {
          <aside
             className={`${
                expand ? "w-[33px]" : "w-[200px]"
-            } py-5 px-3 flex flex-col border-gray-100 bg-gray-900 h-100% min-h-[100vh] transition-[width] duration-200`}
+            } py-5 px-3 flex flex-col border-gray-100 bg-gray-900 h-100% min-h-[100vh] transition-[width] duration-200 z-10`}
          >
-            <div onClick={handlePanelToggle} className="flex gap-2 items-center">
+            <div onClick={handlePanelToggle} className="flex gap-2 items-center z-100">
                <i className={`!font-extrabold text-gray-500 pi pi-arrow-${expand ? "right" : "left"} transition-all duration-200 my-5 cursor-pointer hover:scale-105 ${ expand ? "bg-gray-800" : "bg-gray-900"} rounded-full p-2`}></i> {" "}
                <div
                   className={`!font-extrabold text-gray-500 transition-transform duration-200 ${
