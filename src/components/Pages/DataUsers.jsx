@@ -13,7 +13,7 @@ import { Button } from 'primereact/button';
 
 export default function DataUsers() {
    const items_breadcrumb = [
-      { label: 'Data' },
+      { label: 'Dashboard', url: '/' },
       { label: 'Users', url: "/data/users" }];
    const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
 

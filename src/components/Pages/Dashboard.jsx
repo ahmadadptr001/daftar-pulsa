@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../Layouts/Sidebar";
 import users_count from "/public/users-count.gif";
 import { ReadData } from "../Server/ReadData";
+import { BreadCrumb } from "primereact/breadcrumb";
 
 export default function Dashboard() {
    
@@ -19,10 +20,12 @@ export default function Dashboard() {
          setDataUsers(
             <h1 className="font-extrabold text-[2rem]">{resultDataUsers.length}</h1>
          ); 
-
       })();
    }, [])
 
+   const items_breadcrumb = [
+      { label: 'Dashboard', url: '/' }];
+   const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
 
    return (
       <div className="warapper">
@@ -31,7 +34,8 @@ export default function Dashboard() {
             <Sidebar />
 
             {/* dashboard */}
-            <div className="dashboard p-3">
+            <div className="dashboard p-3 w-full">
+               <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="my-4"/>  
                <div className="container mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3">
 
                   <div className="rounded-md py-4 px-6 bg-[var(--secondary-color)] border-1">

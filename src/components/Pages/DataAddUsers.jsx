@@ -18,7 +18,7 @@ export default function DataAddUsers() {
    const [image, setImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s");
 
    const items_breadcrumb = [
-      { label: 'Data' },
+      { label: 'Dashboard', url: '/' },
       { label: 'users', url: "/data/users" },
       {label: "add", url:"/data/users/add"}];
    const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
@@ -32,14 +32,19 @@ export default function DataAddUsers() {
         toast.current.show({ severity: 'warn', summary: 'Gagal Menambahkan Nomor', detail: 'username atau nomor hp tidak boleh kosong', life: 3000 });
       }
       else {
-         CreateData("users", username, company, image);
-         setUsername("");
-         setCompany("");
-         setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s")
-         toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 3000 });
-         setTimeout(() => {
-            window.location.reload()
-         }, 2000);
+         try {
+            CreateData("users", username, company, image);
+            toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 2000 });
+            setUsername("");
+            setCompany("");
+            setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s")
+            setTimeout(() => {
+               window.location.reload()
+            }, 2000);
+         } catch (error) {
+            toast.current.show({ severity: 'warning', summary: 'Gagal konfirmasi', detail: error, life: 2000 });
+         }
+         
       }
        
    }
