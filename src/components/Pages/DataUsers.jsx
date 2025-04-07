@@ -14,7 +14,7 @@ import { Button } from 'primereact/button';
 export default function DataUsers() {
    const items_breadcrumb = [
       { label: 'Dashboard', url: '/' },
-      { label: 'Users', url: "/data/users" }];
+      { label: 'Pengguna', url: "/data/users" }];
    const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
 
    const [value, setValue] = useState("");
@@ -112,6 +112,11 @@ export default function DataUsers() {
          setVisible(true);
       }
 
+      // mendapatkan informasi user dan menampilkan ke dalam popup dialog
+      const showInfoUser = async() => {
+         const  nama_user = value.replace("@", "").replace(/\s+$/, "").toLowerCase();
+      }
+
    return (
       <div className="wrapper">
          <div className="flex flex-nowrap">
@@ -125,21 +130,21 @@ export default function DataUsers() {
 
                   <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
 
-                  <form method="post" className="mt-5 flex flex-nowrap gap-2 item-center">
+                  <div className="mt-5 flex flex-nowrap gap-2 item-center">
                      <Mention
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
                         suggestions={filteredUsers}
-                        field="name"
+                        field="username"
                         onSearch={searchUsers} 
                         itemTemplate={itemTemplate} 
                         placeholder="ketik @ untuk mencari"
                         className="!w-full !p-0 !pb-0 !m-0" 
                      />
-                     <button type="submit" className="rounded-md px-5 font-extrabold hover:bg-gray-800 focus:bg-gray-800 py-0 cursor-pointer border-[1.5px]">
+                     <button type="button" onClick={showInfoUser} className="rounded-md px-5 font-extrabold hover:bg-gray-800 focus:bg-gray-800 py-0 cursor-pointer border-[1.5px]">
                        <i className="pi pi-search"></i>
                      </button>
-                  </form>
+                  </div>
 
                   <div className="data-users-vertikal p-3 mt-5">
                   <Menubar model={sorting_items} className="mb-5"/>

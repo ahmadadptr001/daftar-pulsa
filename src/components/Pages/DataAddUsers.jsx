@@ -19,30 +19,33 @@ export default function DataAddUsers() {
 
    const items_breadcrumb = [
       { label: 'Dashboard', url: '/' },
-      { label: 'users', url: "/data/users" },
-      {label: "add", url:"/data/users/add"}];
+      { label: 'Pengguna', url: "/data/users" },
+      {label: "Tambahkan", url:"/data/users/add"}];
    const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
 
    // ini untuk modal confirm nya
    const [visible, setVisible] = useState(false);
     const toast = useRef(null);
 
-    const accept = () => {
+    const accept = async() => {
       if (username.trim() === "" || company === "") {
-        toast.current.show({ severity: 'warn', summary: 'Gagal Menambahkan Nomor', detail: 'username atau nomor hp tidak boleh kosong', life: 3000 });
+        toast.current.show({ severity: 'warn', summary: 'Gagal Menambahkan Nomor', detail: 'username atau nomor hp tidak boleh kosong', life: 2000 });
       }
       else {
          try {
-            CreateData("users", username, company, image);
+            await CreateData("users", username, company, image);
             toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 2000 });
+
             setUsername("");
             setCompany("");
+
             setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s")
             setTimeout(() => {
                window.location.reload()
             }, 2000);
+
          } catch (error) {
-            toast.current.show({ severity: 'warning', summary: 'Gagal konfirmasi', detail: error, life: 2000 });
+            toast.current.show({ severity: 'error', summary: 'Gagal konfirmasi', detail: error.message, life: 2000 });
          }
          
       }
@@ -65,7 +68,7 @@ export default function DataAddUsers() {
                <div className="container mx-auto p-3 px-5 bg-[var(--secondary-color)]">
                   <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
                   
-                  <p className="text-lg sm:text-2xl font-extrabold my-5">Add Data</p>
+                  <p className="text-lg sm:text-2xl font-extrabold my-5">Tambahkan Kontak</p>
 
                   <div className="form-input mt-10">
                      <FloatLabel className="mb-10">
