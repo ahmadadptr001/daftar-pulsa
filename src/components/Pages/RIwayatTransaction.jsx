@@ -90,7 +90,7 @@ export default function RiwayatTransaction() {
 
                   <div className="flex justify-end">
                   <button
-                     className="px-4 py-2 mb-2 rounded-sm outline-1 text-[.8rem] outline-red-400 bg-red-400 hover:bg-red-500 focus:scale-105 text-white"
+                     className="px-4 py-2 mb-2 mt-5 sm:mt-0 rounded-sm outline-1 text-[.8rem] outline-red-400 bg-red-400 hover:bg-red-500 focus:scale-105 text-white"
                      >
                         Hapus Riwayat <i className="pi pi-trash"></i> 
                      </button>

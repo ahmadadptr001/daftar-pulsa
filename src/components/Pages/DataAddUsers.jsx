@@ -35,15 +35,11 @@ export default function DataAddUsers() {
             await CreateData("users", username, company, image);
             toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Nomor berhasil ditambahkan', life: 2000 });
 
-            setUsername("");
-            setCompany("");
-
+            setUsername("");setCompany("");
             setImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Goq-0zy_b9XL8fpnLxuFi7hSH3BFQUCRGQ&s")
-            setTimeout(() => {
-               window.location.reload()
-            }, 2000);
-
-         } catch (error) {
+            
+         }
+         catch (error) {
             toast.current.show({ severity: 'error', summary: 'Gagal konfirmasi', detail: error.message, life: 2000 });
          }
          
@@ -52,7 +48,7 @@ export default function DataAddUsers() {
    }
 
     const reject = () => {
-        toast.current.show({ severity: 'warn', summary: 'Tidak Terkonfirmasi', detail: 'Nomor batal ditambahkan', life: 3000 });
+        toast.current.show({ severity: 'warn', summary: 'Tidak Terkonfirmasi', detail: 'Nomor batal ditambahkan', life: 2000 });
     }
 
    return (

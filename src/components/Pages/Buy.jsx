@@ -28,20 +28,17 @@ export default function Buy() {
 
    const accept = async () => {
       if (company === "" || jumlahPulsa === "") {
-         toast.current.show({ severity: 'warn', summary: 'Peringatan', detail: "Nomor / jumlah pembayaran tidak boleh kosong", life: 1000 });
+         toast.current.show({ severity: 'warn', summary: 'Peringatan', detail: "Nomor / jumlah pembayaran tidak boleh kosong", life: 2000 });
       } else {
          try {
             await TransactionPembelian("transaction-pembelian", company, jumlahPulsa);
-            toast.current.show({ severity: 'info', summary: 'Sukses menambahkan data transaksi', detail: "Transaksi pembayaran sukses", life: 1000 });
+            toast.current.show({ severity: 'info', summary: 'Sukses menambahkan data transaksi', detail: "Transaksi pembayaran sukses", life: 2000 });
 
             setCompany(""); setJumlahPulsa("");
-
-            setTimeout(() => {
-               window.location.reload();
-            }, 1500);
+            
          }
          catch (error) {
-            toast.current.show({ severity: 'error', summary: 'Gagal menambahkan data transaksi', detail: error.message, life: 1000 });
+            toast.current.show({ severity: 'error', summary: 'Gagal menambahkan data transaksi', detail: error.message, life: 2000 });
          }
             
       }
