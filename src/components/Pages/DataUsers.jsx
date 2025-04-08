@@ -128,7 +128,7 @@ export default function DataUsers() {
             <div className="container mx-auto">
                <div className="bg-[var(--secondary-color)] rounded-md p-3 h-full">
 
-                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
+                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem]"/>
 
                   <div className="mt-5 flex flex-nowrap gap-2 item-center">
                      <Mention

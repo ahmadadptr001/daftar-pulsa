@@ -35,7 +35,7 @@ export default function Dashboard() {
 
             {/* dashboard */}
             <div className="dashboard p-3 w-full">
-               <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="my-4"/>  
+               <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem] my-4"/>  
                <div className="container mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3">
 
                   <div className="rounded-md py-4 px-6 bg-[var(--secondary-color)] border-1">

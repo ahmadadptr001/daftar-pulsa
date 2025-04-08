@@ -82,7 +82,7 @@ export default function RiwayatTransaction() {
 
                <div className="container mx-auto p-3 px-5 bg-[var(--secondary-color)]">
                   
-                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
+                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem]"/>
 
                   <h2 className="text-lg sm:text-xl font-extrabold mt-7">
                      Riwayat Transaksi
@@ -90,7 +90,7 @@ export default function RiwayatTransaction() {
 
                   <div className="flex justify-end">
                   <button
-                     className="px-4 py-2 mt-5 mb-2 rounded-sm outline-1 text-[.8rem] outline-red-400 bg-red-400 hover:bg-red-500 focus:scale-105 text-white"
+                     className="px-4 py-2 mb-2 rounded-sm outline-1 text-[.8rem] outline-red-400 bg-red-400 hover:bg-red-500 focus:scale-105 text-white"
                      >
                         Hapus Riwayat <i className="pi pi-trash"></i> 
                      </button>
@@ -114,7 +114,7 @@ export default function RiwayatTransaction() {
                               <div className="card mb-2" key={index}>
                                  <Message
                                     style={{border: 'solid #696cff', borderWidth: '0 0 0 6px', color: '#696cff'}}
-                                    className="border-primary justify-start w-full"
+                                    className="border-primary justify-start w-full !text-[.9rem]"
                                     severity="info"
                                     content={
                                        <ContentRiwayat
@@ -129,6 +129,7 @@ export default function RiwayatTransaction() {
                            ))
                      )}
 
+                  
                      
                   </div>
 

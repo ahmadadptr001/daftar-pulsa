@@ -19,8 +19,7 @@ export default function DataAddUsers() {
 
    const items_breadcrumb = [
       { label: 'Dashboard', url: '/' },
-      { label: 'Pengguna', url: "/data/users" },
-      {label: "Tambahkan", url:"/data/users/add"}];
+      {label: "Tambahkan Pengguna", url:"/data/users/add"}];
    const items_breadcrumb_home = { icon: 'pi pi-home', url: '/' }
 
    // ini untuk modal confirm nya
@@ -64,9 +63,9 @@ export default function DataAddUsers() {
             <Sidebar />
 
             {/* Data add users */}
-            <div className="DataAddUsers h-full w-full">
-               <div className="container mx-auto p-3 px-5 bg-[var(--secondary-color)]">
-                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
+            <div className="DataAddUsers p-3 w-full">
+               <div className="p-3 px-5 bg-[var(--secondary-color)]">
+                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem]"/>
                   
                   <p className="text-lg sm:text-2xl font-extrabold my-5">Tambahkan Kontak</p>
 

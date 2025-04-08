@@ -61,7 +61,7 @@ export default function Buy() {
             <div className="BuySection h-full w-full">
                <div className="container mx-auto p-3 px-5 bg-[var(--secondary-color)]">
                   
-                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} />
+                  <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem]"/>
 
                   <h2 className="text-lg sm:text-xl font-extrabold mt-4">
                      Transaksi Pembelian
