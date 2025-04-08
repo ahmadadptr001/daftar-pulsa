@@ -125,8 +125,8 @@ export default function DataUsers() {
             <Sidebar />
 
             {/* Data -> Users */}
-            <div className="container mx-auto p-3 sm:p-1">
-               <div className="bg-[var(--secondary-color)] rounded-md p-3 h-full">
+            <div className="container mx-auto">
+               <div className="bg-[var(--secondary-color)] rounded-md p-3 ps-5">
 
                   <BreadCrumb model={items_breadcrumb} home={items_breadcrumb_home} className="!text-[.7rem]"/>
 
