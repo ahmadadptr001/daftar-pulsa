@@ -40,8 +40,8 @@ export default function Dashboard() {
 
                   <div className="rounded-md py-4 px-6 bg-[var(--secondary-color)] border-1">
                      
-                     <div className="flex justify-between">
-                        <span className="label font-extrabold"> Users </span>
+                     <div className="flex justify-between items-center !text-[.8rem]">
+                        <span className="label font-extrabold"> Pengguna </span>
                         <div className="icon">
                            <i className="pi pi-users"></i>
                         </div>
@@ -56,10 +56,10 @@ export default function Dashboard() {
 
                   <div className="rounded-md py-4 px-6 bg-[var(--secondary-color)] border-1">
                      
-                     <div className="flex justify-between">
-                        <span className="label font-extrabold"> Users </span>
+                     <div className="flex justify-between items-center !text-[.8rem]">
+                        <span className="label font-extrabold"> Riwayat </span>
                         <div className="icon">
-                           <i className="pi pi-users"></i>
+                           <i className="pi pi-comments"></i>
                         </div>
                      </div>
  
