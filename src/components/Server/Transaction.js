@@ -1,7 +1,7 @@
 import { db } from "./FirebaseConfig";
 import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 
-export const TransactionPembelian = async (nameTable, company, jumlahTransaksi) => {
+export const Transaction = async (nameTable, company, jumlahTransaksi, status) => {
    const colRefPembelian = collection(db, nameTable);
    const colRefRiwayat = collection(db, "riwayat-transaction");
    const colRefUsers = collection(db, "users");
@@ -16,7 +16,7 @@ export const TransactionPembelian = async (nameTable, company, jumlahTransaksi) 
       const user_company = user.company;
       
       if (user_company === company) {
-         username = user.username;
+         username = user.username; 
          dataTersedia += 1;
       } 
    });
@@ -28,5 +28,5 @@ export const TransactionPembelian = async (nameTable, company, jumlahTransaksi) 
    dataTersedia = 0;
 
    await  addDoc(colRefPembelian, { company, jumlahTransaksi,  createdAt: serverTimestamp() });
-   await  addDoc(colRefRiwayat, { status: "pembelian", username : username, company, jumlahTransaksi, createdAt: serverTimestamp() });
+   await  addDoc(colRefRiwayat, { status: status, username : username, company, jumlahTransaksi, createdAt: serverTimestamp() });
 }

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../Layouts/Sidebar";
 import users_count from "/public/users-count.gif";
+import riwayat from '/public/riwayat.gif';
 import { ReadData } from "../Server/ReadData";
 import { BreadCrumb } from "primereact/breadcrumb";
 
 export default function Dashboard() {
    
-   const [ dataUsers, setDataUsers ] = useState([])
+   const [ dataUsers, setDataUsers ] = useState([]);
+   const [ dataRiwayat, setDataRiwayat ] = useState([]);
 
+   // users count
    useEffect(()=> {
 
       (async() => {
@@ -20,6 +23,23 @@ export default function Dashboard() {
          setDataUsers(
             <h1 className="font-extrabold text-[2rem]">{resultDataUsers.length}</h1>
          ); 
+      })();
+   }, []);
+
+   // riwayat count
+   useEffect(() => {
+      (async() => {
+         setDataRiwayat(
+            <>
+               <p className="animate-pulse">Loading..</p>
+            </>
+         );
+         const resultDataResponseRiwayat = await ReadData("riwayat-transaction");
+         setDataRiwayat(
+            <>
+               <h1 className="font-extrabold text-[2rem]">{resultDataResponseRiwayat.length}</h1>
+            </>
+         )
       })();
    }, [])
 
@@ -64,8 +84,8 @@ export default function Dashboard() {
                      </div>
  
                      <div className="flex flex-col items-center gap-3 p-3">
-                        <img src={users_count} alt="users-count-image" className="w-[120px] object-cover rounded-full mt-5 p-3"/>
-                        {dataUsers}
+                        <img src={riwayat} alt="users-count-image" className="w-[120px] object-cover rounded-full mt-5 p-3"/>
+                        {dataRiwayat}
                      </div>
 
                   </div>

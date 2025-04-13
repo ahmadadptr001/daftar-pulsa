@@ -10,7 +10,7 @@ import { InputMask } from "primereact/inputmask";
 import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import { ConfirmDialog } from "primereact/confirmdialog";
-import { TransactionPembelian } from "../Server/TransactionPembelian";
+import { Transaction } from "../Server/Transaction";
 
 export default function Buy() {
 
@@ -31,7 +31,7 @@ export default function Buy() {
          toast.current.show({ severity: 'warn', summary: 'Peringatan', detail: "Nomor / jumlah pembayaran tidak boleh kosong", life: 2000 });
       } else {
          try {
-            await TransactionPembelian("transaction-pembelian", company, jumlahPulsa);
+            await Transaction("transaction-pembelian", company, jumlahPulsa, "pembelian");
             toast.current.show({ severity: 'info', summary: 'Sukses menambahkan data transaksi', detail: "Transaksi pembayaran sukses", life: 2000 });
 
             setCompany(""); setJumlahPulsa("");

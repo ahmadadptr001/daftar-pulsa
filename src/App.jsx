@@ -9,6 +9,8 @@ import Dashboard from './components/Pages/Dashboard';
 import DataUsers from './components/Pages/DataUsers';
 import DataAddUsers from './components/Pages/DataAddUsers';
 import Buy from "./components/Pages/Buy";
+import Utang from "./components/Pages/Utang";
+import Piutang from "./components/Pages/Piutang";
 import RiwayatTransaction from './components/Pages/RIwayatTransaction';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/data/users" element={<DataUsers />} /> 
           <Route path="/data/users/add" element={<DataAddUsers />} /> 
           <Route path="/data/transaction/buy" element={<Buy />} />
+          <Route path="/data/transaction/utang" element={<Utang />} />
+          <Route path="/data/transaction/piutang" element={<Piutang />} />
           <Route path="/data/transaction/riwayat" element={<RiwayatTransaction />} />
         </Routes>
       </Router> 

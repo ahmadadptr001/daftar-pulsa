@@ -48,10 +48,12 @@ export default function Sidebar() {
             {
                label: "Utang",
                icon: "pi pi-money-bill",
+               command: () => navigate("/data/transaction/utang")
             },
             {
                label: "Piutang",
                icon: "pi pi-credit-card",
+               command: () => navigate("/data/transaction/piutang")
             },
          ],
       },
@@ -100,7 +102,7 @@ export default function Sidebar() {
             </div>
             <PanelMenu
                model={sidebar_items}
-               className={`transition-transform duration-200 w-full mb-auto ${expand ? "scale-0" : "scale-100"}`}
+               className={`mt-3 transition-transform duration-200 w-full mb-auto ${expand ? "scale-0" : "scale-100"}`}
             />
             <PanelMenu
                model={sidebar_items_bottom}
