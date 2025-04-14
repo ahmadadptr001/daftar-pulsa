@@ -1,11 +1,14 @@
 import React, {useState, useRef, useEffect} from "react";
 import Sidebar from "../Layouts/Sidebar";
 import { Message } from 'primereact/message';
-import { Button } from "primereact/button";
+import { ConfirmDialog } from 'primereact/confirmdialog';
+import { Toast } from 'primereact/toast';
+import { Button } from 'primereact/button';
 import { BreadCrumb } from "primereact/breadcrumb";
 
 import logo from "/public/phone.png";
 import { ReadData } from "../Server/ReadData";
+import { DeleteCollectionAll } from "../Server/DeleteCollectionAll";
 
 export default function RiwayatTransaction() {
 
@@ -49,13 +52,12 @@ export default function RiwayatTransaction() {
    useEffect(() => {
       const dataRiwayat = async () => {
          const data = await ReadData("riwayat-transaction");
-         
-   
          setDataRiwayatTransaction(data);
       }
       dataRiwayat()
    }, [])
 
+   // template content ------------------------------------------------------------------------------------------------------------------
    const ContentRiwayat = ({status, username, company, jumlahTransaksi}) => (
       <div className="flex items-center w-full">
           <img alt="logo" src={logo} className="mix-blend-darken" width="32" />
@@ -71,6 +73,27 @@ export default function RiwayatTransaction() {
       </div>
   );
   
+//   handle confirm and toast ---------------------------------------------------------------------------------------------------------
+   const toast = useRef(null);
+   const [visible, setVisible] = useState(false);
+
+   const handleConfirm = (collectionName) => {
+      setVisible(true);
+   }
+
+
+   const accept = () => {
+      DeleteCollectionAll("riwayat-transaction");
+      toast.current.show({ severity: 'info', summary: 'Terkonfirmasi', detail: 'Riwayat berhasil dihapus!', life: 3000 });
+      setTimeout(() => {
+      window.location.reload()
+   }, 3500);
+   }
+
+   const reject = () => {
+      toast.current.show({ severity: 'warn', summary: 'Dibatalkan', detail: 'Gagal menghapus riwayat!', life: 3000 });
+   }
+
 
    return (
       <>
@@ -89,11 +112,21 @@ export default function RiwayatTransaction() {
                   </h2>
 
                   <div className="flex justify-end">
-                  <button
-                     className="px-4 py-2 mb-2 mt-5 sm:mt-0 rounded-sm outline-1 text-[.8rem] outline-red-400 bg-red-400 hover:bg-red-500 focus:scale-105 text-white"
-                     >
-                        Hapus Riwayat <i className="pi pi-trash"></i> 
-                     </button>
+                     <Toast ref={toast} />
+                     <ConfirmDialog
+                        group="declarative"
+                        visible={visible}
+                        onHide={() => setVisible(false)}
+                        message="Apakah anda yakin ingin menghapus nomor ini?"
+                        header="Confirmation"
+                        icon="pi pi-exclamation-triangle"
+                        accept={accept}
+                        reject={reject}
+                        style={{ width: '50vw' }}
+                        breakpoints={{ '1100px': '75vw', '960px': '100vw' }}
+                     />
+                     <Button onClick={() => handleConfirm()} label="Hapus Riwayat" iconPos="right" icon="pi pi-trash" className="!px-4 !py-2 !mb-2 !mt-5 sm:!mt-0 !rounded-sm !outline-1 !text-[.8rem] !outline-red-400 !bg-red-400 hover:!bg-red-500 focus:!scale-105 !text-white !border-none"/>
+                  
                   </div>
 
                   <div className="riwayat-wrapper mt-5">
